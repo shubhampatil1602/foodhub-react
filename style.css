@@ -1,3 +1,241 @@
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
+  color: #000;
 }
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the Navbar */
+.header {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+  margin-bottom: 10px;
+}
+
+.logo {
+  height: 75px;
+  width: 225px;
+  cursor: pointer;
+}
+
+.logo-container {
+  margin-left: 50px;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  margin: 0 40px;
+}
+
+.nav-items > ul {
+  display: flex;
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+  margin: 0 12px;
+  font-size: 1em;
+  transition: 0.2s;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+li:hover {
+  color: #ff8264;
+}
+
+.login {
+  background: #ff8264;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+.login:hover {
+  background: #e46a4b;
+}
+
+/* Style for the Navbar */
+
+/* Style for Restaurant Container */
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 12px;
+}
+
+.res-card {
+  width: 244px;
+  /* height: 264.46px; */
+  height: 280px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  /* border: 4px solid #f7f5f2; */
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 20px;
+}
+
+.res-card:hover {
+  transform: scale(0.96);
+  box-shadow: 0 15px 40px -20px #f0efef;
+}
+
+.res-logo-div {
+  height: 162.66px;
+  width: 244px;
+}
+
+.res-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.res-info {
+  height: 264.46px;
+  width: 244px;
+  margin-left: 5px;
+}
+
+.res-info h4 {
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+.res-info p {
+  margin: 0 0 2px 0;
+  color: rgba(2, 6, 12, 0.6);
+  font-weight: 200;
+}
+
+.search {
+  padding: 10px;
+}
+
+.body {
+  width: 75vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0;
+}
+.filter-btn {
+  padding: 10px;
+  margin: 10px;
+  background: #ff8264;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+.filter-btn:hover {
+  background: #e46a4b;
+}
+
+.search-box {
+  padding: 10px;
+  width: 250px;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #ff8264;
+  font-size: 1em;
+  outline: none;
+}
+.search-btn {
+  padding: 10px;
+  background: #ff8264;
+  color: #fff;
+  border: 1px solid #ff8264;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+/* Style for Restaurant Container */
+
+/* Shimmer Cards */
+
+.shimmer-cards {
+  height: 264.46px;
+  width: 244px;
+  margin-left: 10px;
+}
+.res-logo-shimmer {
+  height: 162.66px;
+  width: 244px;
+  border-radius: 20px;
+  background: #e1dfdf;
+}
+.res-info-shimmer {
+  width: 70%;
+  height: 20px;
+  margin-top: 15px;
+  margin-left: 10px;
+  background: #e1dfdf;
+}
+
+/* Shimmer Cards */
+
+/* Footer */
+
+.footer {
+  margin-top: auto;
+  background-color: rgb(2, 6, 12);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 10px;
+  text-align: center;
+}
+
+/* Footer */
+
+/* .header {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff8264;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 2s ease-in-out;
+}
+
+.header:hover::before {
+  transform: scaleX(1);
+} */
