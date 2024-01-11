@@ -1,10 +1,12 @@
 import RestaurantCard from './RestaurantCard';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 import Shimmer from './Shimmer';
 
 const Body = () => {
-  const [listOfrestaurants, setListOfRestaurant] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState('');
 
@@ -13,22 +15,42 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
-    );
+    try {
+      const data = await fetch(
+        'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+      );
 
-    const json = await data.json();
-    // console.log(json);
-    // json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    setListOfRestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      const json = await data.json();
+
+      // console.log(
+      //   json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      // ); //2,4,5
+
+      setListOfRestaurants(
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredRestaurant(
+        json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
   };
 
-  return listOfrestaurants.length === 0 ? (
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <div className='body'>
+        <h1>
+          Looks like you're offline. Please check your internet connection.
+        </h1>
+      </div>
+    );
+
+  return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className='body'>
@@ -47,10 +69,10 @@ const Body = () => {
             className='search-btn'
             onClick={() => {
               console.log(searchText);
-              const filteredRestaurant = listOfrestaurants.filter((res) =>
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              setFilteredRestaurants(filteredRestaurant);
+              setFilteredRestaurant(filteredRestaurant);
             }}
           >
             Search
@@ -59,18 +81,25 @@ const Body = () => {
         <button
           className='filter-btn'
           onClick={() => {
-            const filteredList = listOfrestaurants.filter(
-              (res) => res.info.avgRating > 4
+            const filteredList = listOfRestaurants.filter(
+              (res) => res.info.avgRating > 4.5
             );
-            setListOfRestaurant(filteredList);
+            console.log(filteredList);
+            setFilteredRestaurant(filteredList); //setListOfRestaurants
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className='res-container'>
-        {filteredRestaurants.map((res) => (
-          <RestaurantCard key={res.info.id} resData={res} />
+        {filteredRestaurant.map((res) => (
+          <Link
+            to={'restaurants/' + res.info.id}
+            key={res.info.id}
+            style={{ color: '#000', textDecoration: 'none' }}
+          >
+            <RestaurantCard resData={res} />
+          </Link>
         ))}
       </div>
     </div>

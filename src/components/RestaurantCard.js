@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
       <div className='res-info'>
         <h4 style={{ marginTop: '12px', fontSize: '16px' }}>{name}</h4>
         <h4 style={{ fontSize: '14px' }}>
-          {cuisines.slice(0, 2).join(', ')}...
+          {cuisines.slice(0, 3).join(', ')}...
         </h4>
         <p>
           {avgRating} stars · {sla.deliveryTime} minutes
