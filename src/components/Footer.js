@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
-    <div className='footer-container'>
-      <div className='footer'>
-        <p>Made with ❤️ by Shubham Patil</p>
+    <div>
+      <div className='bg-black text-white text-center mt-12 h-32 flex justify-center flex-col'>
+        <p className='mb-2'>
+          Made with ❤️ by{' '}
+          <a href='https://www.linkedin.com/in/shubhmpatil/'>Shubham Patil</a>
+        </p>
         <p>No © copyright issues.</p>
       </div>
     </div>
