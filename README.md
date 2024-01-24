@@ -1,4 +1,4 @@
-# Foodhub - A React Project from scratch 🚀
+# foodhub - A React Project from scratch 🚀
 
 ## foodhub
 
