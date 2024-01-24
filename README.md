@@ -118,7 +118,7 @@
 ## 2 Types of Routing in web apps
 
 - Client Side Routing
-- Server Side Routing -> refreshes whole page if we have to navigate into the other page(<a href="/"> tag in html)
+- Server Side Routing -> refreshes whole page if we have to navigate into the other page(`<a href="/">` tag in html)
 
 ## What is Parcel doing for us ?
 
