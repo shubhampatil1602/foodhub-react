@@ -32,7 +32,7 @@ const RestaurantMenu = () => {
   // console.log(categories);
 
   return (
-    <div className='w-[56%] mx-auto min-h-screen'>
+    <div className='w-[56%] mx-auto min-h-screen mt-10'>
       <div className='text-center'>
         <h1 className='font-bold mt-5 mb-2 text-xl text-left'>{name}</h1>
         <p className='text-left text-gray-400 text-[12px]'>

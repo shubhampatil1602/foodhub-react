@@ -17,6 +17,36 @@
   - Address
   - Contact us
 
+### 🚀 `To install a package we use npm and to execute a package we use npx command.`
+
+## Packages to install:
+
+1. Start with npm init (it create package.json)
+2. npm i -D parcel (-D refers to dev-dependency)
+3. Install react, react-dom, react-router-dom as normal dependency
+4. Tailwind css
+5. @reduxjs/toolkit (for creation of store) and react-redux (for providing store to react)
+
+## What is Parcel doing for us ?
+
+- Dev Build
+- Local Server
+- Hot Module Replacement (HMR). Automatic reloding page on save.
+- It uses File Watching Algorithm - written in C++
+- Caching - Faster builds
+- Image Optimization
+- Minification
+- Bundling
+- Compress
+- Consistent Hashing
+- Code Splitting
+- Differential Bundling - it gives support of older browsers.
+- Diagnostic - beautiful errors
+- Error Handling
+- HTTPs
+- Tree Shaking - remove unused code.
+- Different dev and production bundles.
+
 ## Learnings from Namaste React while making this project:
 
 - One of the reason for react is fast is it uses virtual dom, diff algo., reconciliation.
@@ -92,16 +122,6 @@
 
 - `Context` is a feature that allows you to share data across the component tree without having to pass props manually at every level. It provides a way to create a global state or shared data that can be accessed by any component within the tree.
 
-- `Redux` is a different library that is used for managing state (state management). Redux works with other libraries as well but it is heavily used with react. There is a library called `zustand` which is similar to redux.
-
-- Redux is helpful for managing large scale application. Here are some advantages/uses:
-  - Used to handle state of application
-  - Handing data
-  - Managing store
-  - Redux offers Easy debugging
-
-### 🚀 `To install a package we use npm and to execute a package we use npx command.`
-
 ## React Hooks
 
 - Normal JS utility functions
@@ -120,29 +140,94 @@
 - Client Side Routing
 - Server Side Routing -> refreshes whole page if we have to navigate into the other page(`<a href="/">` tag in html)
 
-## What is Parcel doing for us ?
+## Redux Toolkit
 
-- Dev Build
-- Local Server
-- Hot Module Replacement (HMR). Automatic reloding page on save.
-- It uses File Watching Algorithm - written in C++
-- Caching - Faster builds
-- Image Optimization
-- Minification
-- Bundling
-- Compress
-- Consistent Hashing
-- Code Splitting
-- Differential Bundling - it gives support of older browsers.
-- Diagnostic - beautiful errors
-- Error Handling
-- HTTPs
-- Tree Shaking - remove unused code.
-- Different dev and production bundles.
+- `Redux` and `React` are two different libraries.
 
-## Packages to install:
+- `Redux` is a centralized state management library.
 
-1. Start with npm init (it create package.json)
-2. npm i -D parcel (-D refers to dev-dependency)
-3. npx parcel sourceFile (localhost)
-4. Install react & react-dom as normal dependency
+- `Redux` is a library that is used for `managing state (state management)`. Redux works with other libraries as well but it is heavily used with react. There is a library called `zustand` which is similar to redux.
+
+- There is a UI Layer and a Data Layer. `Redux works in the data layer of our application`. And, UI and the Data layer works in sync and build our react app.
+
+- `Redux is not mandatory in small or mid size projects.`
+
+- In large scale application, where the data is heavily used, where the lot of read and write operations are happening in the react application (lot of components or lot of data is being transfered between components). Then using Redux make sense with React Application.
+
+- Redux is helpful for managing large scale application. Here are some advantages/uses:
+
+  - Used to handle state of application
+  - Handing data
+  - Managing store
+  - Redux offers Easy debugging
+
+- Redux is in Central Place and Redux contains `slices` in it. A slice can be
+
+  - Cart
+  - Theme: dark/light
+  - Login/Signup
+
+- In Redux we have `Action`, `Reducers`, `Store`, `Selectors`.
+  - User clicks the Add button on the menu page.
+  - This triggers a `dispatch` with an `action` (let's call it ADD_TO_CART).
+  - `Action` calls the `reducer function` associated with the Cart slice receives this action and updates the state by incrementing the cart value.
+  - The `Cart` is subscribed to the slice using `selector`.
+
+## Store creation using Redux Toolkit
+
+- To create our store we use:
+  - npm package `@reduxjs/toolkit` (for creation of store)
+- To provide (connect with react) we use:
+  - npm package `react-redux` (for providing store to react)
+
+## Types of testing (developer)
+
+- Unit Testing
+  - Testing a react component in isolation
+  - For eg: Testing a specific small unit of a individual component (Header component)
+- Integration Testing
+  - Testing that invloves multiple component talking with each other
+  - For eg: Search functionality.
+- End to End Testing (e2e)
+
+## Testing
+
+- `React testing library` is built on top of `DOM testing library`
+- `React testing library` uses `jest`
+
+## Setting up testing in our app
+
+1. Install React Testing Library
+
+```
+npm i -D @testing-library/react
+```
+
+2. Install jest
+
+```
+npm i -D jest
+```
+
+3. Install Babel dependencies
+
+```
+npm i -D babel-jest @babel/core @babel/preset-env
+```
+
+4. Configure babel
+
+- Create `babel.config.js`
+- Check this official docs for more info:
+
+```
+https://jestjs.io/docs/getting-started
+```
+
+5. Configure `.parcelrc` file to disable default babel transpilation
+
+- Check this official docs for more info:
+
+```
+https://parceljs.org/languages/javascript/#usage-with-other-tools
+```

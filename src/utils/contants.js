@@ -6,3 +6,6 @@ export const MENU_API =
 
 export const ELSE_IMG =
   'https://freepngimg.com/thumb/cooking/29422-3-cooking-image.png';
+
+export const EMPTY_CART =
+  'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0';

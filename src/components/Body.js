@@ -34,7 +34,7 @@ const Body = () => {
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className='w-3/4 mx-auto flex flex-col min-h-screen'>
+    <div className='w-3/4 mx-auto flex flex-col min-h-screen mt-10'>
       <div className='flex justify-between my-10 p-2'>
         <div>
           <input

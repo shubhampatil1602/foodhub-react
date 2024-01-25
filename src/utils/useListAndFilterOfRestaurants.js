@@ -38,7 +38,10 @@ const useListAndFilterOfRestaurants = () => {
       listOfRestaurants,
       setListOfRestaurants,
     },
-    { filteredRestaurant, setFilteredRestaurant },
+    {
+      filteredRestaurant,
+      setFilteredRestaurant,
+    },
   ];
 };
 

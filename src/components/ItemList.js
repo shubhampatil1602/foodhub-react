@@ -1,9 +1,14 @@
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/cartSlice';
 import { CDN_URL, ELSE_IMG } from '../utils/contants';
 
 const ItemList = ({ items }) => {
-  // console.log(items);
-  // const allItem = items.map((item) => item.card.info);
-  // console.log(allItem);
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item));
+  };
 
   return (
     <div className='flex flex-col w-[92%] m-auto'>
@@ -38,13 +43,18 @@ const ItemList = ({ items }) => {
                 }
                 className='h-[102px] w-[128px] rounded-lg'
               />
-              <div className='relative bottom-7 right-[10px] inline'>
-                <button className='bg-white text-[#60B246] border-solid border-[1px] border-gray-300 shadow-md rounded-md px-10 py-2 text-[12px] font-bold'>
-                  ADD
-                </button>
-                <span className='text-[#9CA3AF] font-normal text-[10px] p-0 mt-0 relative bottom-2'>
-                  Customisable
-                </span>
+              <div className='relative flex justify-center flex-col'>
+                <div className='absolute bottom-[-33px]'>
+                  <button
+                    className='bg-white text-[#60B246] border-solid border-[1px] border-gray-300 shadow-md rounded-md px-9 py-2 text-[12px] font-bold'
+                    onClick={() => handleAddItem(item)}
+                  >
+                    ADD
+                  </button>
+                  <span className='text-[#9CA3AF] font-normal text-[10px] p-0 mt-0 relative bottom-2'>
+                    Customisable
+                  </span>
+                </div>
               </div>
             </div>
           </div>
