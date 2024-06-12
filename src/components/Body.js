@@ -93,7 +93,7 @@ const Body = () => {
           >
             {
               /** if the restaurant has offer then add a offer label to it */
-              res.info.aggregatedDiscountInfoV3.discountTag ? (
+              res.info.aggregatedDiscountInfoV3?.discountTag ? (
                 <RestaurantCardOffer resData={res} />
               ) : (
                 <RestaurantCard resData={res} />

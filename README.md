@@ -57,7 +57,7 @@
 
 - Virtual DOM is the object representation of Actual DOM.
 
-- Reconciliation aka react-fiber is, The algorithm React uses to diff one tree with another to determine which parts need to be changed.
+- `Reconciliation aka react-fiber` is, The algorithm React uses to diff one tree with another to determine which parts need to be changed.
 
 - In React, a component is a piece of reusable code that represents a part of a user interface. Components are used to render, manage, and update the UI elements in your application.
 
@@ -71,7 +71,7 @@
 
 - Packages are aka dependencies. node_modules is a collection of dependencies.
 
-- If you have package.json & package-lock.json, you can recreate/install all your node_modules.
+- If you have `package.json` & `package-lock.json`, you can recreate/install all your node_modules.
 
 - Most imp. package in our project is a bundler. (webpack, parcel, vite, etc...)
 
@@ -84,10 +84,19 @@
 - Two ways to create Components in react: 1) Class Based (old) and 2) Functional Based Compponents (new).
 
 - In class based component,
-  class Name extends React.Component {
+
+```
+class Name extends React.Component {
   constructor(props) {
   super(props);
-  } and then render() { return (...)} this is how it is written and inside constructor this.state={something: 1,} & to update this.setState({something: this.state.something+1}) inside return statement.
+  }
+  render() {
+    return (...)
+  }
+}
+```
+
+this is how it is written and inside constructor this.state={something: 1,} & to update this.setState({something: this.state.something+1}) inside return statement.
 
 - `componentDidMount()` is used to make api calls
 
@@ -99,7 +108,21 @@
 
 - `ConfigDrivenUI` - data is driven by config with the help of backend api. In short different content for different locations.
 
-- Two types of export/import. 1) export default componentName -> import componentName from "path" 2) using export keyword infront of variable (named export) -> import { name } from "path"
+- Two types of export/import.
+
+  ```
+  export default componentName;
+  ```
+
+  ```
+  import componentName from "path"
+  ```
+
+  - using export keyword infront of variable is `named export`
+
+  ```
+  import { name } from "path"
+  ```
 
 - `Lazy Loading` -> Lazy loading is a technique used to improve the performance of a web application by loading specific components or code chunks only when they are needed, rather than loading everything upfront. (In short Import code for a particular page when required to avoid large file size).
 
@@ -230,4 +253,32 @@ https://jestjs.io/docs/getting-started
 
 ```
 https://parceljs.org/languages/javascript/#usage-with-other-tools
+```
+
+6. To run test cases(jest)
+
+```
+npm run test
+```
+
+7. Writing Jest configuration
+
+- To initialise a jest:
+
+```
+npx jest --init
+```
+
+- After running the following command, it will ask some questions:
+  - Would you like to use Typescript for the configuration file? › `no`
+  - Choose the test environment that will be used for testing › `jsdom (browser-like)`
+  - Do you want Jest to add coverage reports? › `yes`
+  - Which provider should be used to instrument code for coverage? › `babel`
+  - Automatically clear mock calls, instances, contexts and results before every test? › `yes`
+- this will automatically create `jest.config.js` file.
+
+8. Install jsdom library
+
+```
+npm install --save-dev jest-environment-jsdom
 ```

@@ -14,11 +14,11 @@ const RestaurantMenu = () => {
   if (resInfo === null) return <Shimmer />;
 
   const { name, cuisines, costForTwoMessage, areaName } =
-    resInfo?.cards[0]?.card?.card?.info; // || {}
-  // console.log(resInfo?.cards[0]?.card?.card?.info);
+    resInfo?.cards[0]?.card?.card?.info || {};
 
-  const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  const itemCards =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
+      ?.itemCards;
 
   // console.log('menu');
   // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards);
@@ -29,14 +29,13 @@ const RestaurantMenu = () => {
         c.card?.['card']?.['@type'] ===
         'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
     );
-  // console.log(categories);
 
   return (
     <div className='w-[56%] mx-auto min-h-screen mt-10'>
       <div className='text-center'>
         <h1 className='font-bold mt-5 mb-2 text-xl text-left'>{name}</h1>
         <p className='text-left text-gray-400 text-[12px]'>
-          {cuisines.join(', ')}
+          {cuisines?.join(', ')}
         </p>
         <p className='text-left text-gray-400 text-[12px] mb-8'>{areaName}</p>
 
